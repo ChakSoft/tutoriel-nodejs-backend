@@ -7,7 +7,7 @@ module.exports = {
     return Posts
       .query()
       .eager('comments')
-	  .modifyEager('comments', (builder) => {
+	    .modifyEager('comments', (builder) => {
         builder.where({ deleted : 0 })
       })
       .where({ deleted : 0 })

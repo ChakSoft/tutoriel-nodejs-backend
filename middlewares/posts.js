@@ -1,8 +1,19 @@
 'use strict'
 
 const Express = require('express')
+const Cors = require('cors')
 const router = Express.Router()
 const PostsController = require('../controllers/posts')
+
+let cors = Cors()
+if (process.env.NODE_ENV === 'production') {
+  cors = Cors({
+    origin : '*',
+    methods : [ 'GET' ],
+    optionsSuccessStatus : 200,
+    exposedHeaders : [ 'X-Origin-Token' ],
+  })
+}
 
 router
   .delete('/:id', (req, res) => {
@@ -23,13 +34,13 @@ router
         res.json(post)
       })
   })
-  .get('/', (req, res) => {
+  .get('/', cors, (req, res) => {
     PostsController.list()
       .then((posts) => {
         res.json(posts)
       })
   })
-  .get('/:id', (req, res) => {
+  .get('/:id', cors, (req, res) => {
     PostsController.getOne(req.params.id)
       .then((post) => {
         if (post === null) {

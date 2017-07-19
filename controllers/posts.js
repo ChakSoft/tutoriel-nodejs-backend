@@ -15,7 +15,7 @@ module.exports = {
   create({ title, content, comments = [] }) {
     return Posts
       .query()
-      .insertGraph({ title, content, comments })
+      .insertGraphAndFetch({ title, content, comments })
   },
   getOne(id) {
     return Posts
@@ -32,5 +32,13 @@ module.exports = {
     return Posts
       .query()
       .patchAndFetchById(id, { deleted : 1 })
+  },
+  destroy(id) {
+    let query = Posts.query()
+      .delete()
+    if (id) {
+      query = query.where({ id })
+    }
+    return query
   }
 }

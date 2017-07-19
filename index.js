@@ -11,6 +11,11 @@ app
 	.use(Compression())
 	.use('/posts', require('./middlewares/posts'))
 	.use('/comments', require('./middlewares/comments'))
-	.listen(api.port, () => {
+
+if (!module.parent) {
+	app.listen(api.port, () => {
 		console.log(`Listening on port ${api.port}`)
 	})
+}
+
+module.exports = app

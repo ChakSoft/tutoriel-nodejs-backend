@@ -1,0 +1,14 @@
+{
+    "posts": [
+        {
+            "title": "Titre du post de test #1",
+            "content": "Ceci est un premier test de POST",
+            "comments": [
+                {
+                    "created_by": "Utilisateur",
+                    "content": "Ceci est un commentaire de test"
+                }
+            ]
+        }
+    ]
+}

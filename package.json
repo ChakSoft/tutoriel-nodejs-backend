@@ -1,0 +1,19 @@
+{
+  "name": "tutojs",
+  "version": "1.0.0",
+  "description": "Tutoriel JS - NodeJS #1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Chacaton <chako256@gmail.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.2",
+    "js-yaml": "^3.8.3",
+    "knex": "^0.12.9",
+    "mysql": "^2.13.0",
+    "objection": "^0.7.12"
+  }
+}

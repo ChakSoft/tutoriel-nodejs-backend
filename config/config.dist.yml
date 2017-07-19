@@ -1,0 +1,8 @@
+api:
+  port: 2950
+database:
+  name: ''
+  port: 3306
+  user: ''
+  pass: ''
+  host: ''
